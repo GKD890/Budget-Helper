@@ -2,6 +2,7 @@ import os
 import discord
 from user import Users
 from debug import Deb
+from transaction import Transaction
 
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -32,6 +33,9 @@ async def on_ready():
         print("member: ", member)
     userIns = Users()
     userIns.check_users(client,member_list)
+    trans = Transaction(client)
+    trans.borrow("982154651673722911","518213197602357281",203.3,"test debt")
+    trans.lend("982154651673722911","518213197602357281",1,"test debt23")
 
 
 # bot = commands.Bot(command_prefix='!',intents = intents)

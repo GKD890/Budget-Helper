@@ -52,11 +52,11 @@ class Users():
             print(self.nameList.difference(stored_member_list))
             print(unaddedNamelist)
             print("\n")
-            self.add_users("",self.nameList)
-            print("finished added")
+            # if unaddedNamelist is not None: #TODO: only add users when confirmed
+            #     self.add_users("",self.nameList)
+            #     print("finished added")
        
         
-    
     def add_users(self, guild_name,member_list):
         # add a list of users to the table or files
         # create a folder named with guild name
