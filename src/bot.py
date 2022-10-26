@@ -34,8 +34,8 @@ async def on_ready():
     userIns = Users()
     userIns.check_users(client,member_list)
     trans = Transaction(client)
-    trans.borrow("982154651673722911","518213197602357281",203.3,"test debt")
-    trans.lend("982154651673722911","518213197602357281",1,"test debt23")
+    trans.record("borrow","982154651673722911","518213197602357281",203.3,"test debt")
+    trans.record("lend","982154651673722911","518213197602357281",1,"test debt23")
 
 
 # bot = commands.Bot(command_prefix='!',intents = intents)
