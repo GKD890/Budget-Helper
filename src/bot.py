@@ -1,8 +1,10 @@
+import asyncio
 import os
 import discord
 from user import Users
 from debug import Deb
 from transaction import Transaction
+from message import Message
 
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -13,7 +15,8 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD_NAME')
 
-client = discord.Client(intents = intents)
+# client = discord.Client(intents = intents)
+client = commands.Bot(command_prefix='$',intents = intents)
 # client = commands.bot(command_prefix='!',intents = intents)
                                
 member_list = []
@@ -31,34 +34,48 @@ async def on_ready():
     for member in client.get_all_members():
         member_list.append(member)
         print("member: ", member)
+        
+    await client.load_extension('message')
+    ########### Users function test part ##########
+
     userIns = Users()
     userIns.check_users(client,member_list)
-    trans = Transaction(client)
-    trans.record("borrow","982154651673722911","518213197602357281",203.3,"test debt")
-    trans.record("lend","982154651673722911","518213197602357281",1,"test debt23")
+    
+    ########### Transaction function test part ##########
 
+    # trans = Transaction(client)
+    # trans.record("borrow","982154651673722911","518213197602357281",203.3,"test debt")
+    # trans.record("lend","982154651673722911","518213197602357281",1,"test debt23")
+
+    ########### Message function test part ##########
+    # mes = Message()
+    
+    
 
 # bot = commands.Bot(command_prefix='!',intents = intents)
 
-@client.event
-async def on_message(message):
-    # allocate message based on different command 
-    if message.author == client.user:
-        return
-    welcome_phrase = [
-        "hi",
-        "hi!",
-        "hello",
-        "hello!",
-        "test:message"
-    ]
-    if (message.content in welcome_phrase):
-    # if (message.content == 'hi'):
-        print("matched message")
-        # response = Deb.message_info.format(message.created_at,message.author,message.id)
-        response = "date: {date} \n author: {author} \n ID: {ID}".format(date = message.created_at,author = message.author,ID = message.id)
-        await message.channel.send(response)
-    elif message.content == 'raise-exception':
-        raise discord.DiscordException
+# @client.event
+# async def on_message(message):
+#     # allocate message based on different command 
+#     if message.author == client.user:
+#         return
+#     welcome_phrase = [
+#         "hi",
+#         "hi!",
+#         "hello",
+#         "hello!",
+#         "test:message"
+#     ]
+#     if (message.content in welcome_phrase):
+#     # if (message.content == 'hi'):
+#         print("matched message")
+#         # response = Deb.message_info.format(message.created_at,message.author,message.id)
+#         response = "date: {date} \n author: {author} \n ID: {ID}".format(date = message.created_at,author = message.author,ID = message.id)
+#         await message.channel.send(response)
+#     elif message.content == 'raise-exception':
+#         raise discord.DiscordException
+
+    
+    
 
 client.run(TOKEN)

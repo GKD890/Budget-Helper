@@ -64,11 +64,7 @@ class Users():
             for member in member_list:
                 self.cursor.execute( "INSERT INTO {table} (name,id,borrow,lend) VALUES (?, ?, ?,?) ".format(
                 table = "member"), (member[0], member[1],0, 0))
-        # with open(f'{guild_name}/namelist.csv','a+') as f:
-        #     writer = csv.writer(f,delimiter='\t',lineterminator='\n')
-        #     for i in range(len(unaddedNamelist)):
-        #         row = [f'{unaddedNamelist.pop()}']
-        #         writer.writerow(row)
+
         print("New users have been added")
         
     def init_database(self):
