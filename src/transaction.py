@@ -5,11 +5,10 @@ import os
 import datetime
 
 intents=discord.Intents.all()
-client = commands.Bot(command_prefix='!',intents = intents)
+client = commands.Bot(command_prefix='$',intents = intents)
 
 class Transaction():
-    def __init__(self,client:discord.Client):
-        self.client = client
+    def __init__(self):
         conn = mariadb.connect(
                 user=os.getenv('DATABASE_USER'),
                 password=os.getenv('DATABASE_PASSWORD'),
@@ -54,13 +53,13 @@ class Transaction():
             id= person_id
         ))
         for item in self.cursor.fetchall():
-            print("borrow: ",item)
+            # print("borrow: ",item)
             sum_borrow += item[1]
         self.cursor.execute(" SELECT other_person,borrow FROM record WHERE (borrow IS NOT NULL AND other_person = {id});".format(
             id= person_id
         ))
         for item in self.cursor.fetchall():
-            print("lend: ",item)
+            # print("lend: ",item)
             sum_lend += item[1]
         # update chages of borrow and lend once new record created
         actionList = {("borrow",sum_borrow),("lend",sum_lend)}

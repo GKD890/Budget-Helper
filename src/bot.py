@@ -31,15 +31,13 @@ async def on_ready():
         f'{guild.name}(id: {guild.id})\n'
     )
     # get member list
-    for member in client.get_all_members():
-        member_list.append(member)
-        print("member: ", member)
+    
         
     await client.load_extension('message')
     ########### Users function test part ##########
 
-    userIns = Users()
-    userIns.check_users(client,member_list)
+    # userIns = Users()
+    # userIns.check_users(member_list)
     
     ########### Transaction function test part ##########
 
@@ -49,33 +47,6 @@ async def on_ready():
 
     ########### Message function test part ##########
     # mes = Message()
-    
-    
-
-# bot = commands.Bot(command_prefix='!',intents = intents)
-
-# @client.event
-# async def on_message(message):
-#     # allocate message based on different command 
-#     if message.author == client.user:
-#         return
-#     welcome_phrase = [
-#         "hi",
-#         "hi!",
-#         "hello",
-#         "hello!",
-#         "test:message"
-#     ]
-#     if (message.content in welcome_phrase):
-#     # if (message.content == 'hi'):
-#         print("matched message")
-#         # response = Deb.message_info.format(message.created_at,message.author,message.id)
-#         response = "date: {date} \n author: {author} \n ID: {ID}".format(date = message.created_at,author = message.author,ID = message.id)
-#         await message.channel.send(response)
-#     elif message.content == 'raise-exception':
-#         raise discord.DiscordException
-
-    
-    
+  
 
 client.run(TOKEN)

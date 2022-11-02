@@ -30,7 +30,7 @@ class Users():
         #     print("Failed to connect with database")
         #     print(f'Database Error: {e}')
 
-    def check_users(self,client:discord.Client,member_list):
+    def check_users(self,member_list):
     # loop users in namelist file (create one if doesn't exist) and check list
     # if not matched, initialize one
         if (self.cursor != None):
@@ -46,11 +46,11 @@ class Users():
 
             self.cursor.execute("SELECT name,id FROM {table}".format(table = "member"))
             stored_member_list ={member for member in self.cursor}
-
+            #================================ debug part =====================================
             # print(f'stored List: {stored_member_list}')
             # print(f'dynamic List: {self.nameList}')
-            print(self.nameList.difference(stored_member_list))
-            print(unaddedNamelist)
+            # print(self.nameList.difference(stored_member_list))
+            # print(unaddedNamelist)
             print("\n")
             # if unaddedNamelist is not None: #TODO: only add users when confirmed
             #     self.add_users("",self.nameList)

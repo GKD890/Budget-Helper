@@ -2,17 +2,19 @@
 - Deploied in you discord server that can help you and your roommates or friends to record the bills
 - It also provids personal view so to check your financial relationship to others in the same server.
 ### For deploying MariaDB on your server, find other resources.
----
+
 
 # Use it first time?
 After you have deploied your own **MariaDB** server, you can use command `init` at any channel you want, to add all members in your guild to the database. 
+![init](/Budget-Helper/media/init.jpg)
 
 # How to record transactions
 So far, only `borrow` and `lend` two actions, plus `amount` can be registered into database. You should add `$` before any command. You don't need to refer to yourself, but only to the other person.
 
 `$borrow member:@<other person> amount:<how much you borrow>`
+ 
 `$lend member:@<other person> amount:<how much you borrow>`
-
+![borrow](/Budget-Helper/media//borrow.jpg)
 ### Example
 borrow $30.2 from memberA:
 `$borrow member:@memberA amount:30.2`
