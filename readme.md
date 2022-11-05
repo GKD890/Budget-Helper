@@ -6,6 +6,7 @@
 
 # Use it first time?
 After you have deploied your own **MariaDB** server, you can use command `init` at any channel you want, to add all members in your guild to the database. 
+
 ![init](media/init.jpg)
 
 # How to record transactions
@@ -14,7 +15,9 @@ So far, only `borrow` and `lend` two actions, plus `amount` can be registered in
 `$borrow member:@<other person> amount:<how much you borrow>`
  
 `$lend member:@<other person> amount:<how much you borrow>`
+
 ![borrow](media/borrow.jpg)
+
 ### Example
 borrow $30.2 from memberA:
 `$borrow member:@memberA amount:30.2`
