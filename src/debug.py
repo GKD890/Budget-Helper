@@ -1,4 +1,8 @@
 import discord 
 
 class Deb():
-    message_info = "date: {date} \n author: {author} \n ID {ID}"
+    
+    @staticmethod
+    def printPort(port):
+        for mes in port:
+            print(f'{mes} \n')
