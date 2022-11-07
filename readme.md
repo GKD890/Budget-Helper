@@ -1,6 +1,8 @@
 # Discord Financial Bot
 - Deploied in you discord server that can help you and your roommates or friends to record the bills
-- It also provids personal view so to check your financial relationship to others in the same server.
+- It also provids personal view so to check your financial relationship to others in the same server both in *Discord channel* and a **web page** . 
+
+see the front-end management system here: [Budget Helper Management](https://github.com/GKD890/BudgetHelper-Management)
 ### For deploying MariaDB on your server, find other resources.
 
 
