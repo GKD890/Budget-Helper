@@ -34,19 +34,7 @@ async def on_ready():
     
         
     await client.load_extension('message')
-    ########### Users function test part ##########
 
-    # userIns = Users()
-    # userIns.check_users(member_list)
-    
-    ########### Transaction function test part ##########
-
-    # trans = Transaction(client)
-    # trans.record("borrow","982154651673722911","518213197602357281",203.3,"test debt")
-    # trans.record("lend","982154651673722911","518213197602357281",1,"test debt23")
-
-    ########### Message function test part ##########
-    # mes = Message()
   
 
 client.run(TOKEN)

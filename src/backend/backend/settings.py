@@ -9,9 +9,6 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-path = "...debug"
-# import sys
-# sys.path.append("..")
 import os
 
 from pathlib import Path
@@ -30,7 +27,11 @@ SECRET_KEY = 'django-insecure-bipkp^@fow1e_&yquzn1b2vkm0t%srw^&^=ydr($dj^g*ww6yx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    os.getenv('LOCAL_IP'),
+    '127.0.0.1',
+    'localhost'
+]
 
 
 # Application definition
@@ -43,11 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 'corsheaders',
     'rest_framework',
     'web_manage', #  app name
 ]
 
 MIDDLEWARE = [
+    # 'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,6 +60,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS_ALLOWED_ORIGINS= [
+#     'http://localhost:8000',
+#     'http://127.0.0.1:8000',
+# ]
+
+# CORS_ALLOW_ALL_ORIGINS: True
 
 ROOT_URLCONF = 'backend.urls'
 

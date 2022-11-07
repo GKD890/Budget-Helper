@@ -20,6 +20,7 @@ from web_manage import views
 
 router = routers.DefaultRouter()
 router.register(r'members',views.MemberView,'member')
+router.register(r'records',views.RecordView,'record')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include(router.urls))
