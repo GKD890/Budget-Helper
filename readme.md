@@ -20,6 +20,8 @@ So far, only `borrow` and `lend` two actions, plus `amount` can be registered in
 
 ### Example
 borrow $30.2 from memberA:
+
+
 `$borrow member:@memberA amount:30.2`
 
 # How to view histroy
@@ -29,18 +31,31 @@ As so far only "borrow" and "lend" can be registered, you can view histroy based
 
 ### Example
 - Full history
+
+
 `$histroy`
 
 - To see how much money lend to memberB
+
+
 `$histroy action:lend member:@memberB`
 
 - To see history related to memberB
+
+
 `$histroy member:@memberB`
 
+## Backend Rest API
+So far you can view **members** and **records** through webpage. add following url to the main page.
 
+
+`<domian>/api/members/`
+
+
+`<domain>/api/records/`
 
 ## Road map
 - [x] Basic database and query.
 - [x] Channel and according responses.
+- [x] Manage orders on a web page.
 - [ ] Create repayment method that can track orders easily.
-- [ ] Manage orders on a web page.

@@ -1,2 +1,7 @@
 .env
 __pycache__/
+test.py
+
+src/backend/__pycache__
+src/backend/web_manage/__pycache__
+src/backend/web_manage/migrations/__pycache__
