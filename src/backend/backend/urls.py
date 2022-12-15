@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from web_manage import views
+from django.views.decorators.csrf import csrf_exempt
 
 router = routers.DefaultRouter()
 router.register(r'members',views.MemberView,'member')
-router.register(r'records',views.RecordView,'record')
+router.register(r'records',views.RecordView,'record') 
+# router.register(r'login',views.) 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include(router.urls))
+    path('api/',include(router.urls)),
+    path('login/', csrf_exempt(views.LoginView.as_view()),name="login") # TODO: not secure login url
 ]

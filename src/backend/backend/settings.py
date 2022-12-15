@@ -91,8 +91,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-print(os.getenv('DATABASE_NAME'))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
