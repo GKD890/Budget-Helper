@@ -26,5 +26,7 @@ router.register(r'records',views.RecordView,'record')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include(router.urls)),
-    path('login/', csrf_exempt(views.LoginView.as_view()),name="login") # TODO: not secure login url
+    path('login/', csrf_exempt(views.LoginView.as_view()),name="login"), # TODO: not secure login url
+    # path('logout/',csrf_exempt(views.LogoutView.as_view()),name="logout"),
+    path("logout/", views.LogoutView.as_view(), name="logout"),
 ]
